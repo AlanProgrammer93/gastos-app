@@ -1,24 +1,33 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react';
+import { Helmet } from 'react-helmet';
+import BarraTotalGastado from './components/BarraTotalGastado';
+import FomularioGasto from './components/FormularioGasto';
+import Boton from './elements/Boton';
+import BotonCerrarSesion from './elements/BotonCerrarSesion';
+import { ContenedorBotones, ContenedorHeader, Header, Titulo } from './elements/Header';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <Helmet>
+        <title>Agregar Gasto</title>
+      </Helmet>
+
+      <Header>
+        <ContenedorHeader>
+          <Titulo>AGREGAR GASTO</Titulo>
+          <ContenedorBotones>
+            <Boton to="/categorias">Categorias</Boton>
+            <Boton to="/lista">Lista de Gastos</Boton>
+            <BotonCerrarSesion />
+          </ContenedorBotones>
+        </ContenedorHeader>
+      </Header>
+
+      <FomularioGasto />
+
+      <BarraTotalGastado />
+    </>
   );
 }
 
